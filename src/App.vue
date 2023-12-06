@@ -1,30 +1,55 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app" class="app">
+    <app-accordion class="accordion">
+      <template v-slot:title>
+        <span class="text">Accordion 1</span>
+      </template>
+      <template v-slot:content>
+        <p>
+          <b>Lorem</b>, ipsum dolor sit amet consectetur adipisicing elit. Quia,
+          porro. Non a excepturi, voluptatibus ipsam magnam, eligendi,
+          accusantium ipsa quae quis praesentium voluptate saepe ullam sint ea
+          itaque consectetur impedit?
+        </p>
+      </template>
+    </app-accordion>
+
+    <app-accordion class="accordion">
+      <template v-slot:title>
+        <span class="text">Accordion 2</span>
+      </template>
+      <template v-slot:content>
+        <p>
+          <b>Lorem</b>, ipsum dolor sit amet consectetur adipisicing elit. Quia,
+          porro. Non a excepturi, voluptatibus ipsam magnam, eligendi,
+          accusantium ipsa quae quis praesentium voluptate saepe ullam sint ea
+          itaque consectetur impedit?
+        </p>
+      </template>
+    </app-accordion>
+  </div>
 </template>
 
+<script>
+import AppAccordion from "./components/AppAccordion.vue";
+
+export default {
+  name: "App",
+  components: {
+    AppAccordion,
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.app{
+  padding:15px;
 }
-
-nav {
-  padding: 30px;
+.accordion{
+  margin-bottom: 30px;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.text{
+  font-size: 1.25em;
+  font-weight: 600;
 }
 </style>
